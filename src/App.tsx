@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import Display from "./components/Display/Display";
+import Manipulator from "./components/Manipulator/Manipulator";
 function App() {
+  const [count, setCount] = useState<number>(0);
+
+  // const useState = (initialValue) => {
+  //   let state = initialValue
+  //   const setState = function(value){
+  //     state = value;
+  //   }
+  //   return [state, setState]
+  // }
+
+  // setState(5)
+
+  // let x = {
+  //   // SPRZEDWCA 1 SPRZEDAJE ARBUZY
+  //   y: 1,
+  //   z: 2,
+  // };
+
+  // //  let y = x // SPRZEDAWCA 2 TYLKO MOWI ZE SPRZEDAJE ARBUZY
+
+  // x.y = 3; // MUTACJA DANYCH
+
+  // x = { // NADPISANIE (ZASTAPIENIE) STARYCH DANYCH
+  //   y: 3,
+  //   z: 2,
+  // };
+
+  // zasady hookow
+  // 1. nazwa zaczyna od use
+  // 2. wywolujemy je tylko wewnatrz komponentow funkcyjnych
+  // 3. wywolujemy je tylko na top scopie w komponencie
+
+  // props === properties
+  // propsy działają tylko w dół
+  const propToPassDown = 5;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Display count={count} />
+      <Manipulator setCount={setCount} />
     </div>
   );
 }
